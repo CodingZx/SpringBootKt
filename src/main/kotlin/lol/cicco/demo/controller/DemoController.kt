@@ -8,11 +8,10 @@ import lol.cicco.demo.entity.TestEntity
 import lol.cicco.demo.mapper.TestMapper
 import org.springframework.beans.factory.InitializingBean
 import org.springframework.beans.factory.annotation.Autowired
-import org.springframework.validation.BindingResult
+import org.springframework.validation.annotation.Validated
 import org.springframework.web.bind.annotation.GetMapping
 import org.springframework.web.bind.annotation.RestController
 import java.util.*
-import javax.validation.Valid
 
 @RestController
 class DemoController : InitializingBean {
@@ -25,7 +24,7 @@ class DemoController : InitializingBean {
     }
 
     @GetMapping("/demo2")
-    fun demo2(@Valid request : DemoRequest) : DemoResponse {
+    fun demo2(@Validated request : DemoRequest) : DemoResponse {
         return DemoResponse(UUID.randomUUID(), "lalala")
     }
 
@@ -42,11 +41,7 @@ class DemoController : InitializingBean {
     }
 
     override fun afterPropertiesSet() {
-        try {
-            mapper.findAll()
-        } catch (ex : Exception) {
-            mapper.createTable()
-        }
+        mapper.createTable()
     }
 
 }
