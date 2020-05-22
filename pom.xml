@@ -127,14 +127,14 @@
                     </args>
                     <jvmTarget>11</jvmTarget>
                     <compilerPlugins>
-                        <plugin>spring</plugin>
                         <plugin>no-arg</plugin>
+                        <plugin>spring</plugin>
                     </compilerPlugins>
                     <pluginOptions>
-                        <option>no-arg:annotation=lol.cicco.demo.common.annotation.NoArg</option>
+                        <option>no-arg:annotation=lol.cicco.demo.common.annotation.NoArgs</option>
                     </pluginOptions>
-
                 </configuration>
+
                 <dependencies>
                     <dependency>
                         <groupId>org.jetbrains.kotlin</groupId>
