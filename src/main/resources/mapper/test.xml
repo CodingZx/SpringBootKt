@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="lol.cicco.demo.mapper.TestMapper">
+
+
+    <insert id="createTable">
+        create table test(id varchar(255) NOT NULL ,name varchar(255) NOT NULL, PRIMARY KEY (id) );
+    </insert>
+    
+    <select id="findAll" resultType="lol.cicco.demo.entity.TestEntity">
+        select id, name from test
+    </select>
+    
+    <insert id="save" parameterType="lol.cicco.demo.entity.TestEntity">
+        insert into test(id, name) values(#{id},#{name})
+    </insert>
+
+</mapper>
